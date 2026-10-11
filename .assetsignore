@@ -1,0 +1,6 @@
+wrangler.jsonc
+worker.js
+complaint.js
+.env.example
+SETUP-COMPLAINTS.md
+.assetsignore
