@@ -4,12 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Deepa Cinema — Since 1985</title>
-<meta name="description" content="Deepa Cinema — Christie RealLaser projection, Harkness Hugo screen, and DTS:X immersive sound. Since 1985.">
-
+<meta name="description" content="Deepa Cinema, Viyyur, Thrissur — Christie RealLaser projection, Harkness Hugo screen and DTS:X immersive sound. Since 1985.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script type="importmap">
 {
   "imports": {
@@ -18,593 +16,238 @@
   }
 }
 </script>
-
 <style>
-  :root{
-    --black:        #060504;
-    --near-black:   #0c0a08;
-    --charcoal:     #161310;
-    --charcoal-2:   #201b16;
-    --gold:         #cda45e;
-    --gold-bright:  #e9c887;
-    --gold-dim:     #8a713f;
-    --cream:        #f3ead9;
-    --ash:          #a89d8c;
-    --dts-red:      #e6432e;
-    --dts-blue:     #2f9fd6;
-    --serif: 'Cormorant Garamond', serif;
-    --sans: 'Manrope', sans-serif;
-  }
+:root{--bg:#050403;--bg2:#0b0907;--ink:#f4efe6;--mute:#9c9487;--gold:#d8ad63;--gold2:#ecd29a;--line:rgba(244,239,230,.13);--serif:'Instrument Serif',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;--ease:cubic-bezier(.16,.84,.44,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+::selection{background:var(--gold);color:#000}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#3a3226;border-radius:4px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 
-  *{ margin:0; padding:0; box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  body{
-    background:var(--black);
-    color:var(--cream);
-    font-family:var(--sans);
-    overflow-x:hidden;
-    -webkit-font-smoothing:antialiased;
-  }
-  ::selection{ background:var(--gold); color:var(--black); }
+.wrap{max-width:1240px;margin:0 auto;padding:0 5vw}
+.label{font-size:.72rem;letter-spacing:.24em;color:var(--gold);font-weight:600;text-transform:uppercase}
+.label b{color:var(--mute);font-weight:500;margin-right:.8em}
+.h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,5.6vw,4.8rem);line-height:1;letter-spacing:-.01em;margin:1rem 0 1.2rem}
+.h2 em{color:var(--gold2)}
+.lead{color:var(--mute);font-size:1.06rem;max-width:46ch}
+.pill{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.6rem;border-radius:999px;font-size:.86rem;font-weight:600;letter-spacing:.02em;border:0;cursor:pointer;font-family:var(--sans);transition:transform .5s var(--ease),background .4s,box-shadow .5s,color .3s}
+.pill-gold{background:var(--gold);color:#120d05}
+.pill-gold:hover{background:var(--gold2);transform:translateY(-3px);box-shadow:0 16px 40px rgba(216,173,99,.28)}
+.pill[disabled]{opacity:.55;cursor:wait}
+.link-arrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.9rem;padding:.8rem .2rem;transition:gap .4s var(--ease),color .3s}
+.link-arrow:hover{gap:1rem;color:var(--gold2)}
+.section{padding:9rem 0;position:relative}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.in{opacity:1;transform:none}
 
-  a{ color:inherit; text-decoration:none; }
-  img{ max-width:100%; display:block; }
+.grain-overlay{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.04;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.scroll-progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,#8a713f,var(--gold2));z-index:10000}
 
-  ::-webkit-scrollbar{ width:8px; }
-  ::-webkit-scrollbar-track{ background:var(--black); }
-  ::-webkit-scrollbar-thumb{ background:var(--gold-dim); border-radius:4px; }
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5vw;transition:background .5s,padding .5s,backdrop-filter .5s}
+.nav.scrolled{background:rgba(5,4,3,.7);backdrop-filter:blur(18px);padding:.9rem 5vw}
+.nav-brand{display:flex;align-items:center;gap:.7rem}
+.nav-brand img{height:34px;width:34px;border-radius:50%;object-fit:cover}
+.nav-brand span{font-family:var(--serif);font-size:1.45rem;letter-spacing:.01em}
+.nav-links{display:flex;gap:2.4rem;font-size:.86rem;color:var(--mute)}
+.nav-links a{transition:color .3s}.nav-links a:hover{color:var(--ink)}
+.nav .pill{padding:.6rem 1.2rem;font-size:.8rem}
+@media(max-width:900px){.nav-links{display:none}}
 
-  /* ---------- premium film-grain overlay + scroll progress ---------- */
-  .grain-overlay{
-    position:fixed; inset:0; z-index:9999; pointer-events:none;
-    opacity:0.045; mix-blend-mode:overlay;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  .scroll-progress{
-    position:fixed; top:0; left:0; height:2px; width:0%;
-    background:linear-gradient(90deg, var(--gold-dim), var(--gold-bright));
-    z-index:10000; transition:width .1s linear;
-    box-shadow:0 0 8px rgba(233,200,135,0.5);
-  }
-  .eyebrow .num{ color:var(--gold-dim); font-weight:400; margin-right:0.5em; }
+/* HERO */
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;padding:8rem 0 6rem}
+.hero-light{position:absolute;inset:0;background:radial-gradient(55% 55% at 78% 42%,rgba(216,173,99,.17),transparent 70%),radial-gradient(40% 40% at 8% 95%,rgba(140,60,35,.2),transparent 70%)}
+.hero-inner{position:relative;z-index:2;width:100%}
+.hero .label{margin-bottom:1.6rem;opacity:0;animation:up .9s var(--ease) .2s forwards}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(3.6rem,10.5vw,9.4rem);line-height:.92;letter-spacing:-.02em;opacity:0;animation:up 1.1s var(--ease) .4s forwards}
+.hero h1 em{color:var(--gold2)}
+.hero .lede{max-width:44ch;color:var(--mute);font-size:1.1rem;margin:2rem 0 2.4rem;opacity:0;animation:up 1s var(--ease) .7s forwards}
+.hero-cta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;opacity:0;animation:up 1s var(--ease) .9s forwards}
+.hero-emblem{position:absolute;right:6vw;top:50%;width:min(34vw,420px);z-index:1;transform:translateY(-50%);mix-blend-mode:screen;opacity:0;animation:fadeIn 2s ease 1s forwards}
+.hero-emblem img{border-radius:50%;animation:float 9s ease-in-out infinite}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{to{opacity:.95}}
+@keyframes float{50%{transform:translateY(-12px)}}
+@media(max-width:860px){.hero-emblem{width:70vw;right:-10vw;opacity:.28!important}}
 
-  @media (prefers-reduced-motion: reduce){
-    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
-  }
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.3rem 0;background:var(--bg)}
+.marquee-track{display:flex;width:max-content;animation:marq 38s linear infinite}
+.marquee-group{display:flex;align-items:center;gap:2.6rem;padding-right:2.6rem;font-size:.78rem;letter-spacing:.26em;color:var(--mute);white-space:nowrap}
+.marquee-group i{color:var(--gold);font-style:normal}
+@keyframes marq{to{transform:translateX(-50%)}}
 
-  a:focus-visible, button:focus-visible{
-    outline:2px solid var(--gold-bright);
-    outline-offset:3px;
-  }
+/* DTS */
+.dts-section{background:var(--bg);padding-top:9rem}
+.dts-intro{text-align:center;padding:0 5vw 3rem}
+.dtsx-badge{display:inline-flex;background:var(--ink);padding:.85rem 1.9rem;border-radius:999px;margin:1.4rem 0 2rem}
+.dtsx-badge img{height:clamp(34px,5vw,50px);width:auto}
+.dts-title{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,8vw,7rem);line-height:.95;letter-spacing:-.02em}
+.dts-title em{color:var(--gold2)}
+.dts-sub{margin-top:1.4rem;font-size:.78rem;letter-spacing:.24em;color:var(--mute)}
+.dts-stage{position:relative;height:230vh;margin-top:2rem}
+.dts-canvas-holder{position:sticky;top:0;height:100svh;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#dtsCanvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.dts-caption{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);text-align:center;z-index:5;pointer-events:none;width:90%}
+.dts-caption .tag{font-size:.7rem;letter-spacing:.3em;color:var(--gold);transition:opacity .5s}
+.dts-caption h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,4vw,3rem);margin-top:.5rem;transition:opacity .5s}
+.dts-final{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0;pointer-events:none;transition:opacity 1s;z-index:6;background:radial-gradient(circle at center,rgba(5,4,3,.6),transparent 62%)}
+.dts-final.show{opacity:1}
+.dts-final .dtsx-badge{margin:0 0 1.2rem}
+.dts-final p{font-size:.78rem;letter-spacing:.26em;color:var(--mute)}
+.dts-final .boundless{margin-top:.6rem;font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,3.4vw,2.6rem);color:var(--gold2)}
 
-  /* ---------- Shared layout helpers ---------- */
-  .wrap{ max-width:1180px; margin:0 auto; padding:0 6vw; }
-  .eyebrow{
-    font-family:var(--sans);
-    font-size:0.72rem;
-    letter-spacing:0.22em;
-    color:var(--gold);
-    font-weight:600;
-  }
-  section{ position:relative; }
+/* PROJECTION */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center}
+.split.top{align-items:start}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:3rem}}
+.plate{background:var(--ink);border-radius:32px;padding:3.4rem 2.6rem;display:grid;place-items:center;aspect-ratio:5/4;box-shadow:0 50px 120px rgba(216,173,99,.1)}
+.plate img{width:86%}
+.screen-art{border-radius:32px;aspect-ratio:5/4;position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,rgba(236,210,154,.28),rgba(20,16,11,.9) 60%,#050403);display:grid;place-items:center}
+.screen-art::after{content:'';position:absolute;inset:18% 12%;border-radius:10px;background:linear-gradient(180deg,rgba(236,210,154,.14),rgba(236,210,154,.02));box-shadow:0 0 80px rgba(236,210,154,.18) inset}
+.screen-art span{position:relative;z-index:2;font-family:var(--serif);font-style:italic;font-size:clamp(2rem,4vw,3.2rem);color:var(--gold2)}
+.specs{margin-top:2.2rem}
+.spec{display:flex;justify-content:space-between;gap:1.5rem;padding:1.1rem 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.spec:first-child{border-top:1px solid var(--line)}
+.spec span:first-child{color:var(--mute)}
+.spec span:last-child{text-align:right}
+.proj-gap{height:7rem}
 
-  /* ================= NAV ================= */
-  .nav{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:1.4rem 6vw;
-    mix-blend-mode:normal;
-    transition:background .4s ease, padding .4s ease, backdrop-filter .4s ease;
-  }
-  .nav.scrolled{
-    background:rgba(6,5,4,0.82);
-    backdrop-filter:blur(14px);
-    padding:0.9rem 6vw;
-    border-bottom:1px solid rgba(205,164,94,0.12);
-  }
-  .nav-brand{ display:flex; align-items:center; gap:0.65rem; }
-  .nav-brand img{ height:34px; width:auto; }
-  .nav-brand span{ font-family:var(--serif); font-size:1.15rem; letter-spacing:0.04em; color:var(--cream); }
-  .nav-links{ display:flex; gap:2.4rem; font-size:0.82rem; letter-spacing:0.04em; color:var(--ash); }
-  .nav-links a{ position:relative; padding-bottom:4px; transition:color .3s; }
-  .nav-links a::after{
-    content:''; position:absolute; left:0; bottom:0; height:1px; width:0;
-    background:var(--gold); transition:width .35s ease;
-  }
-  .nav-links a:hover{ color:var(--gold-bright); }
-  .nav-links a:hover::after{ width:100%; }
-  .nav-cta{
-    border:1px solid var(--gold-dim); padding:0.55rem 1.3rem; font-size:0.78rem;
-    letter-spacing:0.05em; color:var(--gold-bright); border-radius:2px; transition:all .3s;
-  }
-  .nav-cta:hover{ background:var(--gold); color:var(--black); border-color:var(--gold); }
-  @media (max-width:860px){ .nav-links{ display:none; } }
+/* SEATS */
+.seat-head{text-align:center;max-width:640px;margin:0 auto 3.5rem}
+.seat-head .lead{margin:0 auto}
+.seat-stage{max-width:900px;margin:0 auto;--s:clamp(13px,2.5vw,22px)}
+.screen-arc{height:70px;margin:0 auto 1rem;max-width:640px;border-top:2px solid rgba(236,210,154,.75);border-radius:50% 50% 0 0/100% 100% 0 0;box-shadow:0 -34px 70px -14px rgba(216,173,99,.4)}
+.screen-label{text-align:center;font-size:.66rem;letter-spacing:.34em;color:var(--mute);margin-bottom:2.4rem}
+.seat-map{display:flex;flex-direction:column;gap:calc(var(--s)*.34);align-items:center;overflow-x:auto;padding:0 .5rem .6rem}
+.seat-row{display:flex;align-items:center;gap:.6rem}
+.row-letter{width:16px;font-size:.66rem;color:var(--mute);text-align:center;flex-shrink:0}
+.seats{display:flex;gap:calc(var(--s)*.26)}
+.seat{width:var(--s);height:var(--s);border-radius:7px 7px 4px 4px;border:0;background:rgba(244,239,230,.12);cursor:pointer;flex-shrink:0;transition:transform .25s var(--ease),background .25s,box-shadow .3s}
+.seat:hover{background:rgba(236,210,154,.55);transform:translateY(-3px)}
+.seat.selected{background:var(--gold);box-shadow:0 0 18px rgba(216,173,99,.7);transform:translateY(-3px)}
+.seat-legend{display:flex;justify-content:center;gap:2rem;margin-top:2rem;font-size:.76rem;color:var(--mute)}
+.seat-legend span{display:flex;align-items:center;gap:.55rem}
+.seat-legend i{width:12px;height:12px;border-radius:4px;background:rgba(244,239,230,.12)}
+.seat-legend i.sel{background:var(--gold)}
+.seat-bar{margin:3rem auto 0;max-width:620px;display:flex;align-items:center;justify-content:center;gap:1.2rem;flex-wrap:wrap;text-align:center;color:var(--mute);font-size:.92rem;opacity:.55;transition:opacity .4s}
+.seat-bar.ready{opacity:1}
+.seat-bar .sp-seat{font-family:var(--serif);font-size:1.7rem;color:var(--gold2)}
+.seat-bar a{pointer-events:none}.seat-bar.ready a{pointer-events:auto}
+.seat-note{text-align:center;margin-top:1.4rem;font-size:.74rem;color:#6f685d}
 
-  /* ================= HERO ================= */
-  .hero{
-    height:100svh; min-height:640px; position:relative;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    text-align:center; overflow:hidden;
-    background:radial-gradient(ellipse at 50% 30%, #14100a 0%, #060504 70%);
-  }
-  .hero-curtain{
-    position:absolute; inset:0; z-index:0; opacity:0.55;
-    background:
-      repeating-linear-gradient(100deg,
-        rgba(120,20,20,0.10) 0px, rgba(120,20,20,0.10) 40px,
-        rgba(0,0,0,0.0) 40px, rgba(0,0,0,0.0) 80px);
-    filter:blur(1px);
-    animation:curtainDrift 30s linear infinite;
-  }
-  @keyframes curtainDrift{ 0%{ transform:translateX(0);} 100%{ transform:translateX(-160px);} }
+/* COMPLAINT */
+.help-copy ul{list-style:none;margin-top:2rem;display:grid;gap:.9rem}
+.help-copy li{display:flex;gap:.9rem;color:var(--mute);font-size:.95rem}
+.help-copy li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:.6rem;flex-shrink:0}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+@media(max-width:640px){.form-row{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:.2rem;margin-bottom:1.7rem}
+.field label{font-size:.66rem;letter-spacing:.2em;color:var(--mute)}
+.field input,.field select,.field textarea{background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink);font-family:var(--sans);font-size:1rem;padding:.75rem 0;outline:none;border-radius:0;transition:border-color .3s}
+.field select option{background:#14110d;color:var(--ink)}
+.field textarea{min-height:110px;resize:vertical;line-height:1.6}
+.field input:focus,.field select:focus,.field textarea:focus{border-bottom-color:var(--gold2)}
+.field input::placeholder,.field textarea::placeholder{color:#5f594f}
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.form-foot{display:flex;align-items:center;justify-content:space-between;gap:1.4rem;flex-wrap:wrap;margin-top:.6rem}
+.form-note{font-size:.74rem;color:#7d7569;max-width:36ch;line-height:1.55}
+.form-note a{color:var(--gold2);border-bottom:1px solid rgba(236,210,154,.35)}
+.help-status{margin-top:1.4rem;font-size:.9rem;padding:1rem 1.2rem;border-radius:14px;display:none;line-height:1.55}
+.help-status.ok{display:block;background:rgba(70,170,110,.12);color:#a6e6bf}
+.help-status.err{display:block;background:rgba(210,80,60,.12);color:#f2a999}
+.help-status b{letter-spacing:.06em}
 
-  .hero-glow{
-    position:absolute; top:-10%; left:50%; transform:translateX(-50%);
-    width:900px; height:900px; border-radius:50%;
-    background:radial-gradient(circle, rgba(205,164,94,0.14) 0%, rgba(205,164,94,0) 65%);
-    pointer-events:none;
-  }
-  .hero-orb{
-    position:absolute; border-radius:50%; pointer-events:none; filter:blur(50px);
-    opacity:0.5; animation:orbDrift 18s ease-in-out infinite;
-  }
-  .hero-orb.o1{ width:340px; height:340px; left:8%; top:18%; background:radial-gradient(circle, rgba(233,200,135,0.22), transparent 70%); animation-delay:0s; }
-  .hero-orb.o2{ width:280px; height:280px; right:10%; top:55%; background:radial-gradient(circle, rgba(120,60,40,0.25), transparent 70%); animation-delay:-6s; }
-  .hero-orb.o3{ width:220px; height:220px; left:38%; bottom:6%; background:radial-gradient(circle, rgba(205,164,94,0.16), transparent 70%); animation-delay:-11s; }
-  @keyframes orbDrift{
-    0%,100%{ transform:translate(0,0) scale(1); }
-    50%{ transform:translate(24px,-22px) scale(1.12); }
-  }
+/* THEATRE */
+.theatre-hero{border-radius:32px;overflow:hidden;aspect-ratio:21/9;position:relative;margin-top:3.5rem}
+.theatre-hero img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.04)}
+.theatre-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,4,3,.55))}
+@media(max-width:700px){.theatre-hero{aspect-ratio:4/3}}
+.model-block{margin-top:7rem;text-align:center}
+.model-viewer-shell{position:relative;border-radius:32px;overflow:hidden;margin-top:2.4rem;background:radial-gradient(ellipse at center,#17130d 0%,#050403 80%)}
+#theatreCanvas{width:100%;height:min(66vh,600px);display:block;cursor:grab}
+#theatreCanvas:active{cursor:grabbing}
+.viewer-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;background:#0a0806;z-index:3;transition:opacity .6s;text-align:center;padding:1rem}
+.viewer-loading .spin{width:34px;height:34px;border-radius:50%;border:2px solid rgba(216,173,99,.2);border-top-color:var(--gold2);animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.viewer-loading span{font-size:.68rem;letter-spacing:.16em;color:var(--mute)}
+.viewer-badge{position:absolute;top:1.1rem;left:1.1rem;z-index:4;background:rgba(5,4,3,.7);backdrop-filter:blur(8px);border-radius:16px;padding:.6rem 1rem;text-align:left;opacity:0;transform:translateY(-6px);transition:opacity .4s,transform .4s;pointer-events:none}
+.viewer-badge.show{opacity:1;transform:none}
+.viewer-badge .vb-label{font-size:.6rem;letter-spacing:.16em;color:var(--gold)}
+.viewer-badge .vb-seat{font-family:var(--serif);font-size:1.3rem;color:var(--gold2);margin-top:.1rem}
+.viewer-controls{position:absolute;top:1.1rem;right:1.1rem;z-index:4;display:flex;gap:.5rem}
+.viewer-btn{background:rgba(5,4,3,.7);backdrop-filter:blur(8px);border:0;color:var(--ink);font-family:var(--sans);font-size:.72rem;letter-spacing:.06em;padding:.55rem 1rem;border-radius:999px;cursor:pointer;transition:background .3s,color .3s}
+.viewer-btn:hover{color:var(--gold2)}
+.viewer-btn.active{background:var(--gold);color:#120d05}
+.model-hint{position:absolute;bottom:1rem;left:0;right:0;text-align:center;font-size:.64rem;letter-spacing:.14em;color:#8d8578;z-index:3;pointer-events:none}
 
-  .hero-beam{
-    position:absolute; top:0; left:50%; width:2px; height:0;
-    background:linear-gradient(to bottom, rgba(233,200,135,0.9), rgba(233,200,135,0));
-    transform:translateX(-50%);
-    animation:beamDrop 1.6s ease-out forwards;
-    animation-delay:.2s;
-  }
-  @keyframes beamDrop{ to{ height:34vh; } }
+/* FOOTER */
+footer{padding:6rem 5vw 2.6rem;border-top:1px solid var(--line);text-align:center;margin-top:8rem}
+footer .foot-logo{height:64px;width:64px;border-radius:50%;margin:0 auto 1.4rem;object-fit:cover}
+footer .foot-tag{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--mute);margin-bottom:2rem}
+footer .foot-links{display:flex;justify-content:center;gap:2rem;font-size:.82rem;color:var(--mute);margin-bottom:2rem;flex-wrap:wrap}
+footer .foot-links a:hover{color:var(--gold2)}
+footer .copyright{font-size:.7rem;color:#5f594f;max-width:70ch;margin:0 auto}
 
-  .hero-mark{
-    position:relative; z-index:2;
-    width:min(150px, 22vw);
-    opacity:0; transform:translateY(18px) scale(0.94);
-    animation:markIn 1.1s cubic-bezier(.16,.84,.44,1) forwards;
-    animation-delay:.75s;
-    filter:drop-shadow(0 0 26px rgba(205,164,94,0.28));
-  }
-  @keyframes markIn{ to{ opacity:1; transform:translateY(0) scale(1); } }
-
-  .hero-since{
-    position:relative; z-index:2; margin-top:1.4rem;
-    opacity:0; animation:fadeUp .9s ease forwards; animation-delay:1.5s;
-  }
-  .hero h1{
-    position:relative; z-index:2;
-    font-family:var(--serif); font-weight:500;
-    font-size:clamp(2.6rem, 7.2vw, 5.6rem); line-height:1.02;
-    letter-spacing:0.01em; margin:0.55rem 0 0.9rem;
-    color:var(--cream);
-    opacity:0; animation:fadeUp .95s ease forwards; animation-delay:1.7s;
-  }
-  .hero h1 em{ font-style:italic; color:var(--gold-bright); }
-  .hero p{
-    position:relative; z-index:2;
-    max-width:480px; font-size:1.02rem; color:var(--ash); line-height:1.7;
-    opacity:0; animation:fadeUp .9s ease forwards; animation-delay:1.95s;
-  }
-  @keyframes fadeUp{ from{ opacity:0; transform:translateY(14px);} to{ opacity:1; transform:translateY(0);} }
-
-  .hero-actions{
-    position:relative; z-index:2; display:flex; gap:1rem; margin-top:2.2rem;
-    opacity:0; animation:fadeUp .9s ease forwards; animation-delay:2.15s;
-  }
-  .btn{
-    padding:0.85rem 1.9rem; font-size:0.82rem; letter-spacing:0.06em;
-    border-radius:2px; transition:all .5s cubic-bezier(.16,.84,.44,1); display:inline-block;
-  }
-  .btn-gold{ background:var(--gold); color:var(--black); font-weight:600; }
-  .btn-gold:hover{ background:var(--gold-bright); transform:translateY(-3px); box-shadow:0 14px 38px rgba(205,164,94,0.3); }
-  .btn-ghost{ border:1px solid rgba(243,234,217,0.28); color:var(--cream); }
-  .btn-ghost:hover{ border-color:var(--gold); color:var(--gold-bright); }
-
-  .hero-scroll{
-    position:absolute; bottom:2.6rem; left:50%; transform:translateX(-50%);
-    z-index:2; display:flex; flex-direction:column; align-items:center; gap:0.6rem;
-    opacity:0; animation:fadeUp .9s ease forwards; animation-delay:2.4s;
-  }
-  .hero-scroll span{ font-size:0.66rem; letter-spacing:0.24em; color:var(--ash); }
-  .scroll-line{ width:1px; height:38px; background:linear-gradient(var(--gold), transparent); position:relative; overflow:hidden; }
-  .scroll-line::after{
-    content:''; position:absolute; top:-100%; left:0; width:100%; height:100%;
-    background:var(--gold-bright); animation:scrollDot 1.8s ease-in-out infinite;
-  }
-  @keyframes scrollDot{ 0%{ top:-100%;} 60%{ top:100%;} 100%{ top:100%;} }
-
-  /* stat strip under hero */
-  .stat-strip{
-    border-top:1px solid rgba(205,164,94,0.14);
-    border-bottom:1px solid rgba(205,164,94,0.14);
-    background:var(--near-black);
-  }
-  .stat-strip .wrap{
-    display:grid; grid-template-columns:repeat(4,1fr);
-    padding:2.6rem 6vw;
-  }
-  .stat{ text-align:center; border-right:1px solid rgba(205,164,94,0.1); }
-  .stat:last-child{ border-right:none; }
-  .stat .num{ font-family:var(--serif); font-size:2.1rem; color:var(--gold-bright); }
-  .stat .label{ font-size:0.7rem; letter-spacing:0.08em; color:var(--ash); margin-top:0.3rem; }
-  @media (max-width:760px){
-    .stat-strip .wrap{ grid-template-columns:repeat(2,1fr); row-gap:1.8rem; }
-    .stat{ border-right:none; }
-  }
-
-  /* ================= SECTION HEADERS ================= */
-  .section-head{ text-align:center; max-width:640px; margin:0 auto 3.4rem; }
-  .section-head h2{
-    font-family:var(--serif); font-weight:500;
-    font-size:clamp(2rem, 4.4vw, 3.1rem); margin-top:0.7rem; color:var(--cream);
-  }
-  .section-head p{ color:var(--ash); margin-top:1rem; line-height:1.7; font-size:1rem; }
-
-  /* ================= DTS:X SECTION ================= */
-  .dts-section{
-    background:#000;
-    padding-top:7rem;
-  }
-  .dts-intro{ text-align:center; padding:0 6vw 2rem; }
-  .dts-tagline-tiny{ font-size:0.72rem; letter-spacing:0.2em; color:var(--dts-blue); }
-  .dts-tagline-tiny .num{ color:var(--gold-dim); margin-right:0.5em; }
-  .dts-wordmark{
-    display:flex; align-items:center; justify-content:center;
-    margin:1.1rem 0 1.6rem;
-  }
-  .dtsx-img{
-    height:clamp(48px, 7vw, 78px); width:auto;
-    filter:drop-shadow(0 0 26px rgba(233,200,135,0.16));
-  }
-  .dtsx-img-final{ height:56px; width:auto; }
-
-  .dts-secret{
-    font-family:var(--serif); font-style:italic; font-weight:500;
-    font-size:clamp(1.3rem, 2.6vw, 1.85rem);
-    color:var(--gold-bright);
-    max-width:640px; margin:0 auto; line-height:1.5;
-  }
-  .dts-secret .plain{ display:block; font-family:var(--sans); font-style:normal; font-weight:600;
-    font-size:0.78rem; letter-spacing:0.14em; color:var(--ash); margin-top:0.9rem; }
-
-  .dts-stage{
-    position:relative;
-    height:230vh;
-    margin-top:2rem;
-  }
-  .dts-canvas-holder{
-    position:sticky; top:0; height:100svh; width:100%;
-    display:flex; align-items:center; justify-content:center;
-    overflow:hidden;
-  }
-  #dtsCanvas{ position:absolute; inset:0; width:100%; height:100%; display:block; }
-
-  .dts-caption{
-    position:absolute; left:50%; bottom:9%; transform:translateX(-50%);
-    text-align:center; z-index:5; pointer-events:none; width:90%;
-  }
-  .dts-caption .tag{
-    font-size:0.68rem; letter-spacing:0.28em; color:var(--dts-blue);
-    transition:opacity .5s ease;
-  }
-  .dts-caption h3{
-    font-family:var(--serif); font-weight:500; color:var(--cream);
-    font-size:clamp(1.3rem,3vw,2rem); margin-top:0.5rem;
-    transition:opacity .5s ease;
-  }
-
-  .dts-final{
-    position:absolute; inset:0; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; text-align:center;
-    opacity:0; pointer-events:none; transition:opacity 1s ease; z-index:6;
-  }
-  .dts-final.show{ opacity:1; }
-  .dts-final .dts-final-mark{ display:flex; align-items:center; justify-content:center; }
-  .dts-final p{ margin-top:1rem; font-size:0.78rem; letter-spacing:0.22em; color:var(--ash); }
-  .dts-final .boundless{ margin-top:0.4rem; font-family:var(--serif); font-style:italic; font-size:1.3rem; color:var(--gold-bright); }
-
-  /* ================= PROJECTION / SCREEN SECTION ================= */
-  .proj-section{
-    background:linear-gradient(180deg, #000 0%, var(--near-black) 12%, var(--near-black) 88%, #000 100%);
-    padding:8rem 0 7rem;
-  }
-  .proj-grid{
-    display:grid; grid-template-columns:1.05fr 0.95fr; gap:4rem; align-items:center;
-  }
-  @media (max-width:900px){ .proj-grid{ grid-template-columns:1fr; gap:3rem; } }
-
-  .proj-visual{
-    position:relative; aspect-ratio:4/3; border-radius:4px; overflow:hidden;
-    background:#050403;
-    border:1px solid rgba(205,164,94,0.14);
-  }
-  .proj-visual .beam-cone{
-    position:absolute; left:6%; top:38%; width:0; height:0;
-    border-top:60px solid transparent;
-    border-bottom:60px solid transparent;
-    border-left:64% solid rgba(233,200,135,0.10);
-    filter:blur(2px);
-    animation:beamPulse 4s ease-in-out infinite;
-  }
-  @keyframes beamPulse{ 0%,100%{ opacity:0.7;} 50%{ opacity:1;} }
-  .proj-visual .screen-glow{
-    position:absolute; right:0; top:0; bottom:0; width:34%;
-    background:linear-gradient(90deg, rgba(233,200,135,0) 0%, rgba(233,200,135,0.14) 100%);
-  }
-  .proj-visual .grain{
-    position:absolute; inset:0;
-    background-image:radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size:3px 3px; mix-blend-mode:screen; opacity:0.4;
-  }
-  .proj-visual img.chip-logo{
-    position:absolute; left:1.6rem; bottom:1.5rem; width:150px; opacity:0.95;
-  }
-
-  .spec-card{
-    background:var(--charcoal); border:1px solid rgba(205,164,94,0.12);
-    border-radius:3px; padding:1.1rem 1.3rem; margin-top:0.85rem;
-    display:flex; justify-content:space-between; gap:1rem; align-items:baseline;
-    transition:border-color .4s ease, transform .4s cubic-bezier(.16,.84,.44,1), box-shadow .4s ease;
-  }
-  .spec-card:hover{ border-color:rgba(205,164,94,0.45); transform:translateX(5px); box-shadow:-4px 4px 22px rgba(0,0,0,0.35); }
-  .spec-card .k{ color:var(--ash); font-size:0.82rem; }
-  .spec-card .v{ color:var(--cream); font-weight:600; font-size:0.92rem; text-align:right; }
-
-  .proj-copy .eyebrow{ display:block; margin-bottom:0.6rem; }
-  .proj-copy h2{ font-family:var(--serif); font-weight:500; font-size:clamp(1.9rem,3.6vw,2.6rem); color:var(--cream); margin-bottom:0.9rem; }
-  .proj-copy > p{ color:var(--ash); line-height:1.75; margin-bottom:1.6rem; max-width:46ch; }
-
-  .screen-block{ margin-top:3.2rem; padding-top:3.2rem; border-top:1px solid rgba(205,164,94,0.12); }
-
-  /* ================= SEATING SECTION ================= */
-  .seat-section{ background:#000; padding:8rem 0; }
-  .seat-panel{
-    background:linear-gradient(155deg, rgba(22,19,16,0.9), rgba(10,8,6,0.85));
-    backdrop-filter:blur(10px);
-    border:1px solid rgba(205,164,94,0.16);
-    border-radius:8px; padding:2.6rem clamp(1rem,4vw,3rem) 2.2rem;
-    max-width:980px; margin:0 auto;
-    box-shadow:0 30px 70px rgba(0,0,0,0.45);
-  }
-  .seat-screen-curve{
-    height:14px; margin:0 auto 3rem; max-width:640px;
-    border-radius:0 0 60% 60%/0 0 100% 100%;
-    background:linear-gradient(180deg, rgba(233,200,135,0.55), rgba(233,200,135,0));
-    box-shadow:0 8px 26px rgba(233,200,135,0.18);
-  }
-  .seat-screen-label{
-    text-align:center; font-size:0.68rem; letter-spacing:0.3em; color:var(--ash);
-    margin-top:-2.5rem; margin-bottom:2.8rem;
-  }
-  .seat-price{ text-align:center; font-family:var(--serif); font-size:1.1rem; color:var(--gold-bright); margin-bottom:1.4rem; letter-spacing:0.02em; }
-
-  .seat-map{ display:flex; flex-direction:column; gap:0.42rem; align-items:center; overflow-x:auto; padding-bottom:0.5rem; }
-  .seat-row{ display:flex; align-items:center; gap:0.5rem; }
-  .seat-row .row-letter{ width:16px; font-size:0.68rem; color:var(--ash); text-align:center; flex-shrink:0; }
-  .seat-row .seats{ display:flex; gap:5px; }
-  .seat{
-    width:20px; height:20px; border-radius:3px 3px 5px 5px;
-    border:1px solid rgba(168,157,140,0.3); font-size:0; cursor:pointer;
-    transition:transform .15s ease, border-color .2s;
-    background:transparent;
-    flex-shrink:0;
-  }
-  .seat.sold{ border-color:rgba(168,157,140,0.14); background:rgba(168,157,140,0.06); cursor:not-allowed; }
-  .seat.best{ border-color:rgba(233,200,135,0.6); background:rgba(233,200,135,0.16); }
-  .seat.selected{ border-color:var(--gold-bright); background:var(--gold); }
-  .seat:not(.sold):hover{ transform:scale(1.18); border-color:var(--gold-bright); }
-
-  .seat-legend{ display:flex; justify-content:center; gap:1.8rem; flex-wrap:wrap; margin-top:2.2rem; font-size:0.74rem; color:var(--ash); }
-  .seat-legend .item{ display:flex; align-items:center; gap:0.5rem; }
-  .seat-legend .swatch{ width:14px; height:14px; border-radius:3px; border:1px solid rgba(168,157,140,0.3); }
-  .swatch.available{ background:transparent; }
-  .swatch.sold{ background:rgba(168,157,140,0.1); border-color:rgba(168,157,140,0.14); }
-  .swatch.best{ background:rgba(233,200,135,0.16); border-color:rgba(233,200,135,0.6); }
-  .swatch.selected{ background:var(--gold); border-color:var(--gold-bright); }
-
-  .seat-cta{ display:flex; align-items:center; justify-content:space-between; margin-top:2.4rem; padding-top:1.8rem; border-top:1px solid rgba(205,164,94,0.12); flex-wrap:wrap; gap:1rem; }
-  .seat-cta .sel-info{ color:var(--ash); font-size:0.85rem; }
-  .seat-cta .sel-info b{ color:var(--gold-bright); }
-
-  /* ================= THEATRE (LAST) SECTION ================= */
-  /* ================= COMPLAINT BOX ================= */
-  .help-section{ background:#000; padding:6rem 0 7rem; border-top:1px solid rgba(205,164,94,0.1); }
-  .help-panel{
-    max-width:760px; margin:0 auto;
-    background:linear-gradient(155deg, rgba(22,19,16,0.9), rgba(10,8,6,0.85));
-    border:1px solid rgba(205,164,94,0.16); border-radius:8px;
-    padding:2.4rem clamp(1.2rem,4vw,2.8rem); box-shadow:0 30px 70px rgba(0,0,0,0.45);
-  }
-  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-  @media (max-width:640px){ .field-row{ grid-template-columns:1fr; } }
-  .field{ display:flex; flex-direction:column; gap:0.45rem; margin-bottom:1.1rem; }
-  .field label{ font-size:0.68rem; letter-spacing:0.14em; color:var(--ash); }
-  .field input, .field select, .field textarea{
-    background:rgba(255,255,255,0.03); border:1px solid rgba(205,164,94,0.2);
-    color:var(--cream); font-family:var(--sans); font-size:0.92rem;
-    padding:0.8rem 0.9rem; border-radius:3px; outline:none; transition:border-color .3s, background .3s;
-  }
-  .field select option{ background:#161310; color:var(--cream); }
-  .field textarea{ min-height:130px; resize:vertical; line-height:1.6; }
-  .field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--gold-bright); background:rgba(255,255,255,0.05); }
-  .hp-field{ position:absolute; left:-9999px; width:1px; height:1px; opacity:0; }
-  .help-actions{ display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:0.4rem; }
-  .help-note{ font-size:0.74rem; color:var(--ash); max-width:34ch; line-height:1.5; }
-  .help-btn{ border:none; cursor:pointer; font-family:var(--sans); }
-  .help-btn[disabled]{ opacity:0.55; cursor:wait; }
-  .help-status{ margin-top:1.2rem; font-size:0.86rem; padding:0.85rem 1rem; border-radius:3px; display:none; line-height:1.5; }
-  .help-status.ok{ display:block; background:rgba(60,160,100,0.12); border:1px solid rgba(60,160,100,0.4); color:#9fe0b8; }
-  .help-status.err{ display:block; background:rgba(200,70,50,0.12); border:1px solid rgba(200,70,50,0.4); color:#f0a595; }
-
-  .theatre-section{
-    background:var(--black);
-    padding:8rem 0 2rem;
-  }
-  .theatre-gallery{
-    display:grid; grid-template-columns:1.3fr 0.7fr; gap:1.2rem;
-    margin-bottom:1.2rem;
-  }
-  .theatre-gallery .tall{ grid-row:span 2; }
-  .theatre-gallery img{ width:100%; height:100%; object-fit:cover; border-radius:4px; filter:saturate(1.05) contrast(1.03); }
-  @media (max-width:800px){ .theatre-gallery{ grid-template-columns:1fr; } .theatre-gallery .tall{ grid-row:auto; } }
-
-  .model-block{
-    margin-top:4.5rem; text-align:center;
-  }
-  .model-viewer-shell{
-    max-width:960px; margin:2.4rem auto 0; border-radius:6px; overflow:hidden;
-    border:1px solid rgba(205,164,94,0.16); background:radial-gradient(ellipse at center, #17130d 0%, #060504 80%);
-    position:relative;
-  }
-  #theatreCanvas{ width:100%; height:min(64vh, 580px); display:block; cursor:grab; }
-  #theatreCanvas:active{ cursor:grabbing; }
-
-  .viewer-loading{
-    position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap:0.8rem; background:#0a0806; z-index:3; transition:opacity .6s ease;
-  }
-  .viewer-loading .spin{
-    width:34px; height:34px; border-radius:50%;
-    border:2px solid rgba(205,164,94,0.2); border-top-color:var(--gold-bright);
-    animation:spin 0.9s linear infinite;
-  }
-  @keyframes spin{ to{ transform:rotate(360deg); } }
-  .viewer-loading span{ font-size:0.68rem; letter-spacing:0.16em; color:var(--ash); }
-
-  .viewer-badge{
-    position:absolute; top:1rem; left:1rem; z-index:4;
-    background:rgba(6,5,4,0.72); backdrop-filter:blur(6px);
-    border:1px solid rgba(205,164,94,0.25); border-radius:3px;
-    padding:0.55rem 0.9rem; text-align:left;
-    opacity:0; transform:translateY(-6px); transition:opacity .4s ease, transform .4s ease;
-    pointer-events:none;
-  }
-  .viewer-badge.show{ opacity:1; transform:translateY(0); }
-  .viewer-badge .vb-label{ font-size:0.62rem; letter-spacing:0.14em; color:var(--dts-blue); }
-  .viewer-badge .vb-seat{ font-family:var(--serif); font-size:1.15rem; color:var(--gold-bright); margin-top:0.15rem; }
-
-  .viewer-controls{
-    position:absolute; top:1rem; right:1rem; z-index:4; display:flex; gap:0.5rem;
-  }
-  .viewer-btn{
-    background:rgba(6,5,4,0.72); backdrop-filter:blur(6px);
-    border:1px solid rgba(205,164,94,0.3); color:var(--cream);
-    font-size:0.7rem; letter-spacing:0.06em; padding:0.5rem 0.85rem; border-radius:3px;
-    cursor:pointer; transition:all .25s ease;
-  }
-  .viewer-btn:hover{ border-color:var(--gold-bright); color:var(--gold-bright); }
-  .viewer-btn.active{ background:var(--gold); color:var(--black); border-color:var(--gold); }
-
-  .model-hint{ font-size:0.72rem; letter-spacing:0.1em; color:var(--ash); padding:0.9rem; border-top:1px solid rgba(205,164,94,0.1); }
-
-  .seat-preview-cta{
-    display:inline-flex; align-items:center; gap:0.6rem;
-    margin-top:1.2rem; opacity:0.4; pointer-events:none; transition:opacity .3s ease;
-  }
-  .seat-preview-cta.ready{ opacity:1; pointer-events:auto; }
-  .seat-preview-cta .sp-seat{ color:var(--gold-bright); font-family:var(--serif); font-size:1.05rem; }
-
-  /* ================= FOOTER ================= */
-  footer{
-    background:#000; padding:4rem 6vw 2.4rem;
-    border-top:1px solid rgba(205,164,94,0.12);
-    text-align:center;
-  }
-  footer .foot-logo{ height:52px; margin:0 auto 1.2rem; }
-  footer .foot-tag{ font-family:var(--serif); font-style:italic; color:var(--ash); font-size:1.05rem; margin-bottom:1.8rem; }
-  footer .foot-links{ display:flex; justify-content:center; gap:2rem; font-size:0.78rem; color:var(--ash); margin-bottom:1.8rem; flex-wrap:wrap; }
-  footer .foot-links a:hover{ color:var(--gold-bright); }
-  footer .copyright{ font-size:0.7rem; color:#5c5548; letter-spacing:0.04em; }
-
-  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .9s ease, transform .9s ease; }
-  .reveal.in{ opacity:1; transform:translateY(0); }
 </style>
 </head>
 <body>
-
 <div class="grain-overlay" aria-hidden="true"></div>
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <nav class="nav" id="nav">
-  <div class="nav-brand">
-    <img src="deepa-logo-hd.jpg" alt="Deepa Cinema" style="border-radius:50%;">
-    <span>Deepa Cinema</span>
-  </div>
+  <a href="#top" class="nav-brand"><img src="deepa-logo-hd.jpg" alt="Deepa Cinema"><span>Deepa Cinema</span></a>
   <div class="nav-links">
     <a href="#dtsx">DTS:X Sound</a>
     <a href="#projection">Projection</a>
-    <a href="#seating">Seating</a>
-    <a href="#theatre">The Theatre</a>
     <a href="#complaint">Feedback</a>
+    <a href="#theatre">The Theatre</a>
   </div>
-  <a href="#seating" class="nav-cta">Book a Seat</a>
+  <a href="#seating" class="pill pill-gold">Preview a seat</a>
 </nav>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="hero-curtain" aria-hidden="true"></div>
-  <div class="hero-glow" aria-hidden="true"></div>
-  <div class="hero-orb o1" aria-hidden="true"></div>
-  <div class="hero-orb o2" aria-hidden="true"></div>
-  <div class="hero-orb o3" aria-hidden="true"></div>
-  <div class="hero-beam" aria-hidden="true"></div>
-
-  <img class="hero-mark" src="deepa-logo-hd.jpg" alt="Deepa Cinema emblem" style="border-radius:50%;">
-  <div class="hero-since eyebrow">SINCE 1985</div>
-  <h1>Cinema, <em>felt</em><br>before it's seen.</h1>
-  <p>Four decades in Thrissur. A screen built for light, a room built for sound — Deepa Cinema is where a film stops being watched and starts being lived in.</p>
-
-  <div class="hero-actions">
-    <a href="#dtsx" class="btn btn-gold">Experience the Sound</a>
-    <a href="#seating" class="btn btn-ghost">Book Tickets</a>
-  </div>
-
-  <div class="hero-scroll">
-    <span>SCROLL</span>
-    <div class="scroll-line"></div>
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-light" aria-hidden="true"></div>
+  <div class="hero-emblem" aria-hidden="true"><img src="deepa-logo-hd.jpg" alt=""></div>
+  <div class="wrap hero-inner">
+    <p class="label">Since 1985 &nbsp;·&nbsp; Viyyur, Thrissur</p>
+    <h1>Cinema,<br><em>felt</em> before<br>it&rsquo;s seen.</h1>
+    <p class="lede">Four decades of films in Viyyur. A screen built for light, a room built for sound &mdash; where a film stops being watched and starts being lived in.</p>
+    <div class="hero-cta">
+      <a href="#dtsx" class="pill pill-gold">Hear the sound</a>
+      <a href="#seating" class="link-arrow">Explore the seats <span>&rarr;</span></a>
+    </div>
   </div>
 </section>
 
-<div class="stat-strip">
-  <div class="wrap">
-    <div class="stat"><div class="num">1985</div><div class="label">EST. IN THRISSUR</div></div>
-    <div class="stat"><div class="num">4K</div><div class="label">CHRISTIE REALLASER</div></div>
-    <div class="stat"><div class="num">11.1</div><div class="label">DTS:X CHANNELS</div></div>
-    <div class="stat"><div class="num">Hugo</div><div class="label">HARKNESS SCREEN</div></div>
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-group"><span>DTS:X IMMERSIVE AUDIO</span><i>✦</i><span>CHRISTIE REALLASER</span><i>✦</i><span>HARKNESS HUGO SCREEN</span><i>✦</i><span>SINCE 1985</span><i>✦</i><span>VIYYUR · THRISSUR</span><i>✦</i></div>
+    <div class="marquee-group"><span>DTS:X IMMERSIVE AUDIO</span><i>✦</i><span>CHRISTIE REALLASER</span><i>✦</i><span>HARKNESS HUGO SCREEN</span><i>✦</i><span>SINCE 1985</span><i>✦</i><span>VIYYUR · THRISSUR</span><i>✦</i></div>
   </div>
 </div>
 
-<!-- ============ DTS:X SECTION ============ -->
+<!-- DTS:X -->
 <section class="dts-section" id="dtsx">
   <div class="dts-intro reveal">
-    <div class="dts-tagline-tiny"><span class="num">01</span>IMMERSIVE AUDIO</div>
-    <div class="dts-wordmark">
-      <img src="dtsx-logo.png" alt="DTS:X" class="dtsx-img">
-    </div>
-    <p class="dts-secret">Our sound has a secret.
-      <span class="plain">HEAR IT. DON'T JUST READ ABOUT IT.</span>
-    </p>
+    <p class="label"><b>01</b>Sound</p>
+    <div class="dtsx-badge"><img src="dtsx-logo.png" alt="DTS:X"></div>
+    <h2 class="dts-title">Our sound<br>has a <em>secret.</em></h2>
+    <p class="dts-sub">HEAR IT. DON&rsquo;T JUST READ ABOUT IT.</p>
   </div>
-
   <div class="dts-stage" id="dtsStage">
     <div class="dts-canvas-holder">
       <canvas id="dtsCanvas"></canvas>
       <div class="dts-caption" id="dtsCaption">
-        <div class="tag">FRONT CHANNEL</div>
-        <h3>Sound begins where the story does.</h3>
+        <div class="tag">THE LISTENER</div>
+        <h3>One seat. Every direction.</h3>
       </div>
       <div class="dts-final" id="dtsFinal">
-        <div class="dts-final-mark">
-          <img src="dtsx-logo.png" alt="DTS:X" class="dtsx-img-final">
-        </div>
+        <div class="dtsx-badge"><img src="dtsx-logo.png" alt="DTS:X"></div>
         <p>IMMERSIVE AUDIO</p>
         <div class="boundless">Sound without boundaries.</div>
       </div>
@@ -612,341 +255,261 @@
   </div>
 </section>
 
-<!-- ============ PROJECTION / SCREEN ============ -->
-<section class="proj-section" id="projection">
+<!-- PROJECTION -->
+<section class="section" id="projection">
   <div class="wrap">
-    <div class="proj-grid">
-      <div class="proj-visual reveal">
-        <div class="beam-cone"></div>
-        <div class="screen-glow"></div>
-        <div class="grain"></div>
-        <img class="chip-logo" src="christie-reallaser-transparent.png" alt="Christie RealLaser">
-      </div>
-      <div class="proj-copy reveal">
-        <span class="eyebrow"><span class="num">02</span>POWERED BY CHRISTIE REALLASER</span>
-        <h2>Light, without compromise.</h2>
-        <p>Every frame is projected through a Christie RealLaser system — pure laser illumination tuned for depth, colour accuracy and a black level that film grain deserves.</p>
-        <div class="spec-card"><span class="k">Illumination</span><span class="v">Pure Laser Phosphor</span></div>
-        <div class="spec-card"><span class="k">Colour Gamut</span><span class="v">Rec. 2020 Capable</span></div>
-        <div class="spec-card"><span class="k">Peak Brightness</span><span class="v">Up to 4× Xenon Output</span></div>
-        <div class="spec-card"><span class="k">Light Source Life</span><span class="v">30,000+ Hours</span></div>
-      </div>
-    </div>
-
-    <div class="screen-block proj-grid">
-      <div class="proj-copy reveal">
-        <span class="eyebrow"><span class="num">03</span>PROJECTED ONTO HARKNESS HUGO</span>
-        <h2>A canvas built for laser light.</h2>
-        <p>Our screen is a Harkness Hugo — engineered specifically for laser projection, with a surface that rejects glare and holds contrast from the front row to the last.</p>
-        <div class="spec-card"><span class="k">Screen Type</span><span class="v">Harkness Hugo, Perforated</span></div>
-        <div class="spec-card"><span class="k">Gain</span><span class="v">Optimised for Laser Uniformity</span></div>
-        <div class="spec-card"><span class="k">Surface</span><span class="v">Seamless, Anti-Speckle</span></div>
-      </div>
-      <div class="proj-visual reveal" style="aspect-ratio:1/1;">
-        <div class="grain"></div>
-        <div style="position:absolute;inset:14%;border:1px solid rgba(233,200,135,0.35);border-radius:2px;
-                    background:linear-gradient(180deg, rgba(233,200,135,0.05), rgba(233,200,135,0.14));
-                    display:flex;align-items:center;justify-content:center;">
-          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-bright);font-size:1.3rem;">Harkness&nbsp;Hugo</span>
+    <div class="split">
+      <div class="plate reveal"><img src="christie-reallaser-transparent.png" alt="Christie RealLaser"></div>
+      <div class="reveal">
+        <p class="label"><b>02</b>Light</p>
+        <h2 class="h2">Powered by <em>Christie RealLaser.</em></h2>
+        <p class="lead">Every frame is projected with Christie RealLaser &mdash; laser illumination made for rich colour, depth and the deep blacks a film deserves.</p>
+        <div class="specs">
+          <div class="spec"><span>Projector</span><span>Christie RealLaser</span></div>
+          <div class="spec"><span>Light source</span><span>Laser illumination</span></div>
+          <div class="spec"><span>Picture</span><span>Bright, colour-rich, high contrast</span></div>
         </div>
       </div>
+    </div>
+    <div class="proj-gap"></div>
+    <div class="split">
+      <div class="reveal">
+        <p class="label"><b>03</b>Screen</p>
+        <h2 class="h2">Projected onto <em>Harkness Hugo.</em></h2>
+        <p class="lead">A Harkness Hugo screen, chosen to carry laser light evenly &mdash; so the picture stays clean and consistent from the front row to the last.</p>
+        <div class="specs">
+          <div class="spec"><span>Screen</span><span>Harkness Hugo</span></div>
+          <div class="spec"><span>Built for</span><span>Laser projection</span></div>
+          <div class="spec"><span>Result</span><span>Even brightness across the hall</span></div>
+        </div>
+      </div>
+      <div class="screen-art reveal"><span>Harkness Hugo</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============ SEATING ============ -->
-<section class="seat-section" id="seating">
+<!-- SEAT VIEW -->
+<section class="section" id="seating">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow"><span class="num">04</span>RESERVE YOUR SEAT</span>
-      <h2>Pick where you sit.</h2>
-      <p>Every seat faces the same Harkness Hugo screen and sits inside the same DTS:X sound field — the difference is legroom, and the view.</p>
+    <div class="seat-head reveal">
+      <p class="label"><b>04</b>Seat view</p>
+      <h2 class="h2">See the screen from <em>your seat.</em></h2>
+      <p class="lead">Tap any seat to preview the view from there inside our 3D hall.</p>
     </div>
-
-    <div class="seat-panel reveal">
-      <div class="seat-screen-curve"></div>
-      <div class="seat-screen-label">S C R E E N</div>
-      <div class="seat-price">₹150 · PLATINUM</div>
-
+    <div class="seat-stage reveal">
+      <div class="screen-arc"></div>
+      <div class="screen-label">SCREEN</div>
       <div class="seat-map" id="seatMap"></div>
-
-      <div class="seat-legend">
-        <div class="item"><span class="swatch available"></span>Available</div>
-        <div class="item"><span class="swatch best"></span>Bestseller</div>
-        <div class="item"><span class="swatch selected"></span>Selected</div>
+      <div class="seat-legend"><span><i></i>Seat</span><span><i class="sel"></i>Your pick</span></div>
+      <div class="seat-bar" id="seatPreviewCta">
+        <span>Viewing from</span>
+        <span class="sp-seat" id="spSeatLabel">&mdash;</span>
+        <a href="#theatre" class="pill pill-gold" id="previewSeatBtn">Preview in 3D</a>
       </div>
-
-      <div class="seat-cta">
-        <div class="sel-info">Selected seats: <b id="selCount">0</b></div>
-        <a href="#" class="btn btn-gold" id="proceedBtn">Proceed to Pay</a>
-      </div>
-
-      <div style="text-align:center;">
-        <div class="seat-preview-cta" id="seatPreviewCta">
-          <span style="color:var(--ash); font-size:0.85rem;">See the screen from</span>
-          <span class="sp-seat" id="spSeatLabel">—</span>
-          <a href="#theatre" class="btn btn-ghost" id="previewSeatBtn" style="padding:0.6rem 1.2rem;">Preview in 3D</a>
-        </div>
-      </div>
+      <p class="seat-note">A visual guide only &mdash; this is not a seat booking. Views are approximate.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ COMPLAINT BOX ============ -->
-<section class="help-section" id="complaint">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">WE'RE LISTENING</span>
-      <h2>Something not right? Tell us.</h2>
-      <p>Your message goes straight to our manager's phone in real time — so it gets seen and handled, not buried in an inbox.</p>
+<!-- FEEDBACK -->
+<section class="section" id="complaint">
+  <div class="wrap split top">
+    <div class="help-copy reveal">
+      <p class="label"><b>05</b>We&rsquo;re listening</p>
+      <h2 class="h2">Something not right? <em>Tell us.</em></h2>
+      <p class="lead">Your message goes straight to our management team, so it gets seen and handled.</p>
+      <ul>
+        <li>Reaches the management team right away</li>
+        <li>You receive a ticket number for your complaint</li>
+        <li>We contact you on the number you give</li>
+      </ul>
     </div>
-
-    <div class="help-panel reveal">
-      <form id="complaintForm" novalidate>
-        <div class="field-row">
-          <div class="field">
-            <label for="cName">YOUR NAME</label>
-            <input id="cName" name="name" type="text" maxlength="80" placeholder="Optional" autocomplete="name">
-          </div>
-          <div class="field">
-            <label for="cPhone">PHONE / WHATSAPP *</label>
-            <input id="cPhone" name="phone" type="tel" maxlength="20" placeholder="So we can reach you back" autocomplete="tel" required>
-          </div>
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label for="cType">WHAT'S IT ABOUT? *</label>
-            <select id="cType" name="category" required>
-              <option value="Sound / Audio">Sound / Audio</option>
-              <option value="Picture / Screen">Picture / Screen</option>
-              <option value="Seating / Comfort">Seating / Comfort</option>
-              <option value="Cleanliness">Cleanliness</option>
-              <option value="Staff / Service">Staff / Service</option>
-              <option value="Booking / Payment">Booking / Payment</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="cSeat">SHOW &amp; SEAT (IF ANY)</label>
-            <input id="cSeat" name="seat" type="text" maxlength="80" placeholder="e.g. 6:30 PM show, Row K Seat 9">
-          </div>
-        </div>
-        <div class="field">
-          <label for="cMsg">YOUR COMPLAINT *</label>
-          <textarea id="cMsg" name="message" maxlength="1500" placeholder="Tell us what happened…" required></textarea>
-        </div>
-        <div class="hp-field" aria-hidden="true">
-          <label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-        </div>
-        <div class="help-actions">
-          <div class="help-note">Sent privately to the manager. We'll only use your number to follow up.</div>
-          <button type="submit" class="btn btn-gold help-btn" id="cSubmit">Send to Manager</button>
-        </div>
-        <div class="help-status" id="cStatus" role="status" aria-live="polite"></div>
-      </form>
-    </div>
+    <form id="complaintForm" class="reveal" novalidate>
+      <div class="form-row">
+        <div class="field"><label for="cName">YOUR NAME</label><input id="cName" name="name" type="text" maxlength="80" placeholder="Optional" autocomplete="name"></div>
+        <div class="field"><label for="cPhone">PHONE / WHATSAPP *</label><input id="cPhone" name="phone" type="tel" maxlength="20" placeholder="So we can reach you" autocomplete="tel" required></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="cType">WHAT&rsquo;S IT ABOUT? *</label>
+          <select id="cType" name="category" required>
+            <option>Sound / Audio</option>
+            <option>Picture / Screen</option>
+            <option>Air conditioning / Temperature</option>
+            <option>Seating / Comfort</option>
+            <option>Cleanliness</option>
+            <option>Staff / Service</option>
+            <option>Other</option>
+          </select></div>
+        <div class="field"><label for="cSeat">SHOW &amp; SEAT (IF ANY)</label><input id="cSeat" name="seat" type="text" maxlength="80" placeholder="e.g. 6:30 PM show, Row K Seat 9"></div>
+      </div>
+      <div class="field" id="acField" hidden>
+        <label for="cAc">HOW WAS THE AIR CONDITIONING?</label>
+        <select id="cAc" name="acIssue" disabled>
+          <option>Too cold</option>
+          <option>Too warm / not cooling enough</option>
+          <option>AC not working</option>
+          <option>Draught or noise from the AC</option>
+        </select>
+      </div>
+      <div class="field"><label for="cMsg">YOUR COMPLAINT *</label><textarea id="cMsg" name="message" maxlength="1500" placeholder="Tell us what happened…" required></textarea></div>
+      <div class="hp-field" aria-hidden="true"><label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="form-foot">
+        <p class="form-note">Sent privately to our management team. Please don&rsquo;t include card numbers, passwords or OTPs. By sending, you agree to our <a href="terms.html">Terms &amp; Conditions</a>.</p>
+        <button type="submit" class="pill pill-gold" id="cSubmit">Send to Management Team</button>
+      </div>
+      <div class="help-status" id="cStatus" role="status" aria-live="polite"></div>
+    </form>
   </div>
 </section>
 
-<!-- ============ THEATRE (LAST) ============ -->
-<section class="theatre-section" id="theatre">
+<!-- THEATRE (LAST) -->
+<section class="section" id="theatre" style="padding-bottom:0">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow"><span class="num">05</span>INSIDE DEEPA CINEMA</span>
-      <h2>The room the sound lives in.</h2>
-      <p>Plush seating, low ambient light, and a hall tuned so every one of those DTS:X channels reaches every row.</p>
+    <div class="reveal" style="text-align:center;max-width:680px;margin:0 auto">
+      <p class="label"><b>06</b>Inside Deepa Cinema</p>
+      <h2 class="h2">The room the sound <em>lives in.</em></h2>
+      <p class="lead" style="margin:0 auto">Plush seating, low light, and a hall tuned so the sound reaches every row.</p>
     </div>
-
-    <div class="theatre-gallery reveal">
-      <img class="tall" src="theatre-interior-hd.jpg" alt="Deepa Cinema auditorium interior">
-      <img src="deepa-logo-hd.jpg" alt="Deepa Cinema emblem" style="object-fit:contain;background:#0c0a08;padding:2rem;">
-      <img src="theatre-interior-hd.jpg" alt="Deepa Cinema seating detail" style="object-fit:cover;object-position:bottom;">
-    </div>
+    <div class="theatre-hero reveal"><img src="theatre-interior-hd.jpg" alt="Deepa Cinema auditorium"></div>
 
     <div class="model-block reveal">
-      <span class="eyebrow">WALK THE HALL</span>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(1.7rem,3vw,2.2rem);margin-top:0.6rem;">Sit down. See your screen.</h2>
+      <p class="label">Walk the hall</p>
+      <h2 class="h2" style="font-size:clamp(2rem,4vw,3.2rem)">Sit down. <em>See your screen.</em></h2>
       <div class="model-viewer-shell">
         <canvas id="theatreCanvas"></canvas>
-        <div class="viewer-loading" id="viewerLoading">
-          <div class="spin"></div>
-          <span>LOADING THE HALL</span>
-        </div>
-        <div class="viewer-badge" id="viewerBadge">
-          <div class="vb-label">YOUR VIEW FROM</div>
-          <div class="vb-seat" id="viewerBadgeSeat">Row Q, Seat 9</div>
-        </div>
+        <div class="viewer-loading" id="viewerLoading"><div class="spin"></div><span>LOADING THE HALL</span></div>
+        <div class="viewer-badge" id="viewerBadge"><div class="vb-label">YOUR VIEW FROM</div><div class="vb-seat" id="viewerBadgeSeat">Row Q, Seat 9</div></div>
         <div class="viewer-controls">
-          <button class="viewer-btn active" id="btnOverview">Overview</button>
-          <button class="viewer-btn" id="btnSeatView">Seat View</button>
+          <button class="viewer-btn active" id="btnOverview" type="button">Overview</button>
+          <button class="viewer-btn" id="btnSeatView" type="button">Seat view</button>
         </div>
-        <div class="model-hint">DRAG TO LOOK AROUND · SCROLL TO MOVE · PICK A SEAT ABOVE, THEN TAP "SEAT VIEW"</div>
+        <div class="model-hint">DRAG TO LOOK AROUND · SCROLL TO MOVE</div>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <img class="foot-logo" src="deepa-logo-hd.jpg" alt="Deepa Cinema" style="border-radius:50%;">
-  <div class="foot-tag">Since 1985 — sound you feel, light you remember.</div>
+  <img class="foot-logo" src="deepa-logo-hd.jpg" alt="Deepa Cinema">
+  <div class="foot-tag">Sound you feel. Light you remember.</div>
   <div class="foot-links">
-    <a href="#dtsx">DTS:X Sound</a>
-    <a href="#projection">Projection</a>
-    <a href="#seating">Seating</a>
-    <a href="#theatre">The Theatre</a>
-    <a href="#complaint">Feedback</a>
+    <a href="#dtsx">DTS:X Sound</a><a href="#projection">Projection</a><a href="#seating">Seat view</a><a href="#complaint">Feedback</a><a href="#theatre">The Theatre</a><a href="terms.html">Terms &amp; Conditions</a>
   </div>
-  <div class="copyright">© Deepa Cinema. All rights reserved. DTS:X, Christie RealLaser and Harkness Hugo are trademarks of their respective owners.</div>
+  <div class="copyright">&copy; Deepa Cinema, Viyyur, Thrissur, Kerala. DTS:X, Christie RealLaser and Harkness Hugo are trademarks of their respective owners.</div>
 </footer>
 
 <script>
-  // ---------- NAV scroll state + progress bar ----------
+(function(){
   const nav = document.getElementById('nav');
-  const scrollProgress = document.getElementById('scrollProgress');
-  window.addEventListener('scroll', () => {
+  const bar = document.getElementById('scrollProgress');
+  function onScroll(){
     nav.classList.toggle('scrolled', window.scrollY > 40);
     const h = document.documentElement;
-    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-    scrollProgress.style.width = pct + '%';
-  }, { passive:true });
-
-  // ---------- Reveal on scroll ----------
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-  }, { threshold:0.15 });
-  revealEls.forEach(el => io.observe(el));
-
-  // ---------- Seat map generation ----------
-  const seatMap = document.getElementById('seatMap');
-  const rows = ['Q','P','O','N','M','L','K','J','I','H','G','F','E','D','C','B']; // index 0 = nearest screen
-  const seatsPerRow = 17;
-  let selectedCount = 0;
-
-  // shared state read by the 3D theatre viewer (window.DeepaSeatState)
-  window.DeepaSeatState = { lastSeat: null }; // { rowIndex, rowLetter, seatNumber }
-
-  function pseudoRandom(seed){
-    let x = Math.sin(seed) * 10000;
-    return x - Math.floor(x);
+    bar.style.width = (h.scrollTop / Math.max(h.scrollHeight - h.clientHeight, 1) * 100) + '%';
   }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
 
-  function updatePreviewCta(){
-    const cta = document.getElementById('seatPreviewCta');
-    const label = document.getElementById('spSeatLabel');
-    const seat = window.DeepaSeatState.lastSeat;
-    if (seat){
-      label.textContent = `Row ${seat.rowLetter}, Seat ${seat.seatNumber}`;
-      cta.classList.add('ready');
-    } else {
-      cta.classList.remove('ready');
-    }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ---------- seat view map (visual guide only, not a booking) ----------
+  const rows = ['Q','P','O','N','M','L','K','J','I','H','G','F','E','D','C','B']; // index 0 = nearest the screen
+  const seatsPerRow = 17;
+  const seatMap = document.getElementById('seatMap');
+  const cta = document.getElementById('seatPreviewCta');
+  const label = document.getElementById('spSeatLabel');
+  window.DeepaSeatState = { lastSeat: null };
+
+  function updateCta(){
+    const s = window.DeepaSeatState.lastSeat;
+    if (s){ label.textContent = 'Row ' + s.rowLetter + ', Seat ' + s.seatNumber; cta.classList.add('ready'); }
+    else { label.textContent = '\u2014'; cta.classList.remove('ready'); }
   }
 
   rows.forEach((letter, ri) => {
-    const rowEl = document.createElement('div');
-    rowEl.className = 'seat-row';
-    const label = document.createElement('div');
-    label.className = 'row-letter';
-    label.textContent = letter;
-    rowEl.appendChild(label);
-
-    const seatsWrap = document.createElement('div');
-    seatsWrap.className = 'seats';
-
-    for (let s = seatsPerRow; s >= 1; s--) {
-      const btn = document.createElement('button');
-      btn.className = 'seat';
-      btn.dataset.row = letter;
-      btn.dataset.rowIndex = ri;
-      btn.dataset.seat = s;
-      btn.setAttribute('aria-label', `Seat ${letter}${s}`);
-      const r = pseudoRandom(ri * 31 + s * 7);
-      if (ri >= 12 && r > 0.55 && r < 0.72) {
-        btn.classList.add('best');
-      }
-      btn.addEventListener('click', () => {
-        if (btn.classList.contains('sold')) return;
-        btn.classList.toggle('selected');
-        selectedCount += btn.classList.contains('selected') ? 1 : -1;
-        document.getElementById('selCount').textContent = selectedCount;
-
-        if (btn.classList.contains('selected')){
-          window.DeepaSeatState.lastSeat = { rowIndex: ri, rowLetter: letter, seatNumber: s };
-        } else {
-          // deselected — fall back to another still-selected seat, if any
-          const remaining = seatMap.querySelectorAll('.seat.selected');
-          if (remaining.length){
-            const other = remaining[remaining.length - 1];
-            window.DeepaSeatState.lastSeat = {
-              rowIndex: Number(other.dataset.rowIndex),
-              rowLetter: other.dataset.row,
-              seatNumber: Number(other.dataset.seat)
-            };
-          } else {
-            window.DeepaSeatState.lastSeat = null;
-          }
-        }
-        updatePreviewCta();
+    const row = document.createElement('div');
+    row.className = 'seat-row';
+    const rl = document.createElement('div');
+    rl.className = 'row-letter'; rl.textContent = letter;
+    row.appendChild(rl);
+    const wrap = document.createElement('div');
+    wrap.className = 'seats';
+    for (let s = seatsPerRow; s >= 1; s--){
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'seat';
+      b.setAttribute('aria-label', 'Row ' + letter + ', seat ' + s);
+      b.addEventListener('click', () => {
+        const was = b.classList.contains('selected');
+        seatMap.querySelectorAll('.seat.selected').forEach(x => x.classList.remove('selected'));
+        if (was){ window.DeepaSeatState.lastSeat = null; }
+        else { b.classList.add('selected'); window.DeepaSeatState.lastSeat = { rowIndex: ri, rowLetter: letter, seatNumber: s }; }
+        updateCta();
       });
-      seatsWrap.appendChild(btn);
+      wrap.appendChild(b);
     }
-    rowEl.appendChild(seatsWrap);
-    seatMap.appendChild(rowEl);
-  });
-
-  // ---------- Complaint form ----------
-  (function(){
-    const form = document.getElementById('complaintForm');
-    if (!form) return;
-    const statusEl = document.getElementById('cStatus');
-    const btn = document.getElementById('cSubmit');
-    function show(kind, msg){ statusEl.className = 'help-status ' + kind; statusEl.textContent = msg; }
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      const digits = (data.phone || '').replace(/\D/g, '');
-      if (digits.length < 7){ show('err', 'Please enter a valid phone number so we can reach you.'); return; }
-      if (!data.message || data.message.trim().length < 10){ show('err', 'Please describe the issue in a little more detail.'); return; }
-
-      btn.disabled = true; btn.textContent = 'Sending…'; statusEl.className = 'help-status';
-      try {
-        const res = await fetch('/api/complaint', {
-          method:'POST',
-          headers:{ 'Content-Type':'application/json' },
-          body: JSON.stringify(data)
-        });
-        if (!res.ok) throw new Error('bad status ' + res.status);
-        form.reset();
-        show('ok', 'Thank you — your complaint has reached our manager. We will contact you shortly.');
-      } catch (err){
-        const local = location.protocol === 'file:' || ['localhost','127.0.0.1'].includes(location.hostname);
-        show('err', local
-          ? 'Could not send. The complaint service only runs once the site is deployed with the /api folder (see SETUP-COMPLAINTS.md).'
-          : 'Sorry, that did not go through. Please try again, or call us directly.');
-      } finally {
-        btn.disabled = false; btn.textContent = 'Send to Manager';
-      }
-    });
-  })();
-
-  document.getElementById('proceedBtn').addEventListener('click', (e) => {
-    e.preventDefault();
-    if (selectedCount === 0) {
-      alert('Please select at least one seat.');
-    } else {
-      alert(selectedCount + ' seat(s) selected — booking flow connects here.');
-    }
+    row.appendChild(wrap);
+    seatMap.appendChild(row);
   });
 
   document.getElementById('previewSeatBtn').addEventListener('click', (e) => {
-    if (!window.DeepaSeatState.lastSeat) { e.preventDefault(); return; }
-    // theatre viewer picks this up via hashchange/visibility — small delay lets smooth-scroll start
+    if (!window.DeepaSeatState.lastSeat){ e.preventDefault(); return; }
     setTimeout(() => {
       if (window.DeepaTheatreViewer) window.DeepaTheatreViewer.showSeat(window.DeepaSeatState.lastSeat);
     }, 350);
   });
+
+  // ---------- complaint form ----------
+  const form = document.getElementById('complaintForm');
+  const statusEl = document.getElementById('cStatus');
+  const btn = document.getElementById('cSubmit');
+  const cType = document.getElementById('cType');
+  const acField = document.getElementById('acField');
+  const acSel = document.getElementById('cAc');
+  function show(kind, html){ statusEl.className = 'help-status ' + kind; statusEl.innerHTML = html; }
+
+  function syncAc(){
+    const on = cType.value.indexOf('Air conditioning') === 0;
+    acField.hidden = !on;
+    acSel.disabled = !on;
+  }
+  cType.addEventListener('change', syncAc);
+  syncAc();
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form).entries());
+    const digits = (data.phone || '').replace(/\D/g, '');
+    if (digits.length < 7){ show('err', 'Please enter a valid phone number so we can reach you.'); return; }
+    if (!data.message || data.message.trim().length < 10){ show('err', 'Please describe the issue in a little more detail.'); return; }
+
+    btn.disabled = true; btn.textContent = 'Sending\u2026'; statusEl.className = 'help-status';
+    try {
+      const res = await fetch('/api/complaint', {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) throw new Error('status ' + res.status);
+      const j = await res.json().catch(() => ({}));
+      form.reset(); syncAc();
+      show('ok', j.ticket
+        ? 'Thank you. Your ticket <b>' + j.ticket + '</b> has reached our management team. We will contact you shortly.'
+        : 'Thank you. Your complaint has reached our management team. We will contact you shortly.');
+    } catch (err){
+      const local = location.protocol === 'file:';
+      show('err', local
+        ? 'This form only works on the live website, not from a file on your computer.'
+        : 'Sorry, that did not go through. Please try again, or call us directly.');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Send to Management Team';
+    }
+  });
+})();
+
 </script>
 
 <script type="module">
